@@ -18,11 +18,11 @@ $(function(){
   
         for (let i = 0; i < response.length; i++) {
           $(".matches").append(`
-          <div class= "match my-5" match-id="${response[i]._id}">
-            <button class="btn btn-danger btn-sm float-right">Delete</button>
-            <button class="btn btn-warning btn-sm float-right mx-2">Edit</button>
-            <h4>${response[i].name}</h4>
-            <p>${response[i].description}</p>
+          <div class= "match my-5" match-id="${response[i].id}">
+            <h4>${response[i].city}</h4>
+            <p>${response[i].date}</p>
+            <p>${response[i].teamA}</p>
+            <p>${response[i].teamB}</p>
           </div>
           `); 
         }
