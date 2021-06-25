@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 })
 
 // to get all Teams
-app.get('https://psl-mini.herokuapp.com/teams', (req,res) => {
+app.get('/teams', (req,res) => {
     res.send(teams)
 })
 
