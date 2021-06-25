@@ -6,18 +6,18 @@ const teams = require('./teams.json')
 
 app.use(express.json())
 
-// landing page
-app.get('/', (req, res) => {
-    res.send('Hello World')
-})
+// // landing page
+// app.get('/', (req, res) => {
+//     res.send('Hello World')
+// })
 
 // to get all Teams
-app.get('/teams', (req,res) => {
+app.get('https://psl-mini.herokuapp.com/teams', (req,res) => {
     res.send(teams)
 })
 
 // to get a single Team
-app.get('/teams/:id', (req,res) => {
+app.get('https://psl-mini.herokuapp.com/teams/:id', (req,res) => {
     const team = teams.find(c => c.id === parseInt(req.params.id))
 
     if(!team){
@@ -28,12 +28,12 @@ app.get('/teams/:id', (req,res) => {
 })
 
 // to get all matches
-app.get('/matches', (req,res) => {
+app.get('https://psl-mini.herokuapp.com/matches', (req,res) => {
     res.send(matches)
 })
 
 // to get a single match
-app.get('/matches/:id', (req,res) => {
+app.get('https://psl-mini.herokuapp.com/matches/:id', (req,res) => {
     const match = matches.find(c => c.id === parseInt(req.params.id))
 
     if(!match){
@@ -44,7 +44,7 @@ app.get('/matches/:id', (req,res) => {
 })
 
 // to create a match
-app.post('/matches', (req,res) => {
+app.post('https://psl-mini.herokuapp.com/matches', (req,res) => {
     const {error} = validateMatches(req.body)
     if(error){
         return res.status(400).send(error.details[0].message)   
@@ -64,7 +64,7 @@ app.post('/matches', (req,res) => {
 
 
 // to update a Match
-app.put('/matches/:id', (req,res) => {
+app.put('https://psl-mini.herokuapp.com/matches/:id', (req,res) => {
     const match = matches.find(c => c.id === parseInt(req.params.id))
     if(!match){
         return res.status(404).send('The Match is not found :(')
@@ -84,7 +84,7 @@ app.put('/matches/:id', (req,res) => {
 })
 
 // to delete a match
-app.delete('/matches/:id', (req,res) => {
+app.delete('https://psl-mini.herokuapp.com/matches/:id', (req,res) => {
     const match = matches.find(c => c.id === parseInt(req.params.id))
     if(!match){
         return res.status(404).send('The Match is not found :(')
