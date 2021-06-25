@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 })
 
 // to get all Teams
-app.get('/teams', (req,res) => {
+app.get('https://psl-mini.herokuapp.com/teams', (req,res) => {
     res.send(teams)
 })
 
@@ -33,7 +33,7 @@ app.get('/matches', (req,res) => {
 })
 
 // to get a single match
-app.get('/mcqs/:id', (req,res) => {
+app.get('/matches/:id', (req,res) => {
     const match = matches.find(c => c.id === parseInt(req.params.id))
 
     if(!match){
